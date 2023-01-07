@@ -99,3 +99,17 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
+// Copy to clipboard function
+
+let copyPassword = document.getElementById('password').innerHTML;
+
+const copyContent = async () => {
+  try {
+    await navigator.clipboard.writeText(copyPassword);
+    console.log('Content copied to clipboard');
+  } catch (err) {
+    console.error('Failed to copy: ', err);
+  }
+}
+
+console.log(copyPassword)
