@@ -5,8 +5,7 @@
 }
 
 html,
-body,
-.wrapper {
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -18,9 +17,7 @@ body {
 }
 
 .wrapper {
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
+  margin: 30px 20px;
 }
 
 header {
@@ -42,14 +39,6 @@ header {
   padding: 30px 40px;
 }
 
-.card-header::after {
-  content: " ";
-  display: block;
-  width: 100%;
-  background: #e7e9eb;
-  height: 2px;
-}
-
 .card-body {
   min-height: 100px;
 }
@@ -58,19 +47,10 @@ header {
   display: flex;
   justify-content: center;  
   align-items: center;
-  
 }
 
 .card-footer {
   text-align: center;
-}
-
-.card-footer::before {
-  content: " ";
-  display: block;
-  width: 100%;
-  background: #e7e9eb;
-  height: 2px;
 }
 
 .card-footer::after {
@@ -81,9 +61,9 @@ header {
 
 .btn {
   border: none;
-  background-color: hsl(360, 91%, 36%);
+  background-color: #e12200;
   border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   color: hsl(0, 0%, 100%);
   display: inline-block;
   font-size: 22px;
@@ -92,6 +72,11 @@ header {
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #b91c00;
+  box-shadow: none;
 }
 
 button[disabled] {
@@ -108,24 +93,42 @@ button[disabled] {
   -moz-appearance: none;
   appearance: none;
   border: none;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  padding-top: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 85px;
+  padding: 20px;
   font-size: 1.2rem;
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  border: 2px dashed #c0c7cf;
+  border: 2px solid #e7e7e7;
   border-radius: 6px;
   resize: none;
+  outline: none;
   overflow: hidden;
+  white-space: pre-wrap;
 }
 
 @media (max-width: 690px) {
+  .card {
+    padding: 30px 20px;
+  }
+
+  .buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: center;
+  }
+
+  .card-footer {
+    text-align: center;
+    width: 100%;
+  }
+
   .btn {
+    width: 100%;
     font-size: 1rem;
     margin: 16px 0px 0px 0px;
     padding: 10px 15px;
@@ -133,11 +136,6 @@ button[disabled] {
 
   #password {
     font-size: 1rem;
-  }
-}
-
-@media (max-width: 500px) {
-  .btn {
-    font-size: 0.8rem;
+    padding: 30px 20px 50px ;
   }
 }
