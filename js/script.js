@@ -28,8 +28,6 @@ function getPasswordOptions() {
       alert("You must choose a number between 10 and 64")
     }
 
-    console.log(`${passwordLength}`)
-
   } while (passwordLength < 10 || passwordLength > 64 || passwordLength != parseInt(passwordLength));
 
   finalString = ""
@@ -80,7 +78,6 @@ function generatePassword() {
   for (let i = 0; i < passwordLength; i++) {
     generatedPassword += getRandom(finalString)
   }
-  console.log(generatedPassword)
   return generatedPassword
 
 }
@@ -100,16 +97,17 @@ function writePassword() {
 generateBtn.addEventListener('click', writePassword);
 
 // Copy to clipboard function
-
-let copyPassword = document.getElementById('password').innerHTML;
-
-const copyContent = async () => {
-  try {
-    await navigator.clipboard.writeText(copyPassword);
-    console.log('Content copied to clipboard');
-  } catch (err) {
-    console.error('Failed to copy: ', err);
+function copyToClipboard(containerid) {
+  if (document.selection) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(document.getElementById(containerid));
+    range.select().createTextRange();
+    document.execCommand("copy");
+  } else if (window.getSelection) {
+    var range = document.createRange();
+    range.selectNode(document.getElementById(containerid));
+    window.getSelection().addRange(range);
+    document.execCommand("copy");
+    alert("The password has been copied!")
   }
 }
-
-console.log(copyPassword)
