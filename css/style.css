@@ -61,7 +61,7 @@ header {
 
 .btn {
   border: none;
-  background-color: #e12200;
+  background-color: #d42000;
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   color: hsl(0, 0%, 100%);
@@ -75,7 +75,7 @@ header {
 }
 
 .btn:hover {
-  background-color: #b91c00;
+  background-color: #28b900;
   box-shadow: none;
 }
 
