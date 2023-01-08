@@ -2,6 +2,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: 'Prompt', sans-serif;
 }
 
 html,
@@ -9,34 +10,55 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  
 }
 
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  background-color: #1f1f1f;
 }
 
 .wrapper {
-  margin: 30px 20px;
+  padding: 30px 20px 60px;
 }
 
 header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   padding: 20px;
   padding-top: 0px;
-  color: hsl(206, 17%, 28%);
+  color: #E05426;
+  font-family: 'Prompt', sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 1rem;
 }
 
 .card {
-  background-color: hsl(0, 0%, 100%);
+  background-color: hsl(0, 0%, 19%);
   border-radius: 5px;
-  border-width: 1px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
-  color: hsl(206, 17%, 28%);
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, 0.209) 0px 2px 8px 0px;
   font-size: 18px;
   margin: 0 auto;
   max-width: 800px;
-  padding: 30px 40px;
+  padding: 30px 40px 50px 40px;
+}
+
+.password-logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0 3rem 0;
+}
+
+.password-logo img{
+  width: 150px;
 }
 
 .card-body {
@@ -47,6 +69,7 @@ header {
   display: flex;
   justify-content: center;  
   align-items: center;
+  margin-top: 30px;
 }
 
 .card-footer {
@@ -61,9 +84,9 @@ header {
 
 .btn {
   border: none;
-  background-color: #d42000;
-  border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  background-color: #DA3E25;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.209) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   color: hsl(0, 0%, 100%);
   display: inline-block;
   font-size: 22px;
@@ -75,7 +98,7 @@ header {
 }
 
 .btn:hover {
-  background-color: #28b900;
+  background-color: #F78E1E;
   box-shadow: none;
 }
 
@@ -97,22 +120,47 @@ button[disabled] {
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 20px;
+  padding: 30px 10px 30px 10px;
   font-size: 1.2rem;
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  border: 2px solid #e7e7e7;
+  border: 2px solid #D4332E;
   border-radius: 6px;
   resize: none;
   outline: none;
   overflow: hidden;
   white-space: pre-wrap;
+  background-color:#ffe9d2;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #dd6841;
+  margin-top: 3rem;
+  font-size: .85rem;
+}
+footer a {
+  color: #dd6841;
+  font-size: .8rem;
 }
 
 @media (max-width: 690px) {
+  
+  h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 1rem;
+  }
   .card {
     padding: 30px 20px;
+  }
+
+  .password-logo img{
+    width: 100px;
   }
 
   .buttons-container {
@@ -136,9 +184,14 @@ button[disabled] {
 
   #password {
     font-size: 1rem;
-    padding: 30px 20px 50px ;
+    padding: 30px 10px 50px 10px;
   }
-  #copy-to-clipboard {
-    display: none;
+}
+
+@media (max-width: 350px) {
+  h1 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 1rem;
   }
 }
