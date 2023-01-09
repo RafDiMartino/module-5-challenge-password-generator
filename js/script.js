@@ -97,17 +97,27 @@ function writePassword() {
 generateBtn.addEventListener('click', writePassword);
 
 // Copy to clipboard function
-function copyToClipboard(containerid) {
-  if (document.selection) {
-    var range = document.body.createTextRange();
-    range.moveToElementText(document.getElementById(containerid));
-    range.select().createTextRange();
-    document.execCommand("copy");
-  } else if (window.getSelection) {
-    var range = document.createRange();
-    range.selectNode(document.getElementById(containerid));
-    window.getSelection().addRange(range);
-    document.execCommand("copy");
-    alert("The password has been copied!")
-  }
+// function copyToClipboard(containerid) {
+//   if (document.selection) {
+//     var range = document.body.createTextRange();
+//     range.moveToElementText(document.getElementById(containerid));
+//     range.select().createTextRange();
+//     document.execCommand("copy");
+//   } else if (window.getSelection) {
+//     var range = document.createRange();
+//     range.selectNode(document.getElementById(containerid));
+//     window.getSelection().addRange(range);
+//     document.execCommand("copy");
+//     alert("The password has been copied!")
+//   }
+// }
+
+function copyToClipboard() {
+  var copiedPass  = document.getElementById("password");
+  let passwordCopied = copiedPass.value
+  navigator.clipboard.writeText(passwordCopied).then(() => {
+    alert("The password has been copied!");
+  }, () => {
+    alert("The password has not been copied, try again");
+  });
 }
