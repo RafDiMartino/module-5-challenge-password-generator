@@ -1,18 +1,18 @@
 // Array of special characters to be included in password
-var specialCharacters = ['@','%','+','\\','/',"'",'!','#','$','^','?',':',',',')','(','}','{',']','[','~','-','_','.'];
+const specialCharacters = ['@','%','+','\\','/',"'",'!','#','$','^','?',':',',',')','(','}','{',']','[','~','-','_','.'];
 
 // Array of numeric characters to be included in password
-var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 // Array of lowercase characters to be included in password
-var lowerCasedCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+const lowerCasedCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
 // Array of uppercase characters to be included in password
-var upperCasedCharacters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+const upperCasedCharacters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
 let passwordLength = 0
 let generatedPassword = ""
-let finalString = ""
+let finalPassword = ""
 
 // Function to prompt user for password options
 function getPasswordOptions() {
@@ -30,7 +30,7 @@ function getPasswordOptions() {
 
   } while (passwordLength < 10 || passwordLength > 64 || passwordLength != parseInt(passwordLength));
 
-  finalString = ""
+  finalPassword = ""
 
   do {
 
@@ -40,25 +40,25 @@ function getPasswordOptions() {
     const specialChar = confirm("Would you like to use Special Characters? ($@%&*, etc)")
 
     if (lowercase) {
-      finalString += lowerCasedCharacters.join("")
+      finalPassword += lowerCasedCharacters.join("")
     }
     if (uppercase) {
-      finalString += upperCasedCharacters.join("")
+      finalPassword += upperCasedCharacters.join("")
     }
     if (numeric) {
-      finalString += numericCharacters.join("")
+      finalPassword += numericCharacters.join("")
     }
     if (specialChar) {
-      finalString += specialCharacters.join("")
+      finalPassword += specialCharacters.join("")
     }
 
-    if (finalString === "") {
+    if (finalPassword === "") {
       if (!confirm('You need to choose at least one "Character Type" or click "Cancel" to exit')) {
         return
       }
     }
 
-  } while (finalString === "");
+  } while (finalPassword === "");
 }
 
 // Function for getting a random element from an array
@@ -71,24 +71,24 @@ function generatePassword() {
   generatedPassword = ""
   getPasswordOptions()
 
-  if (finalString === "") {
+  if (finalPassword === "") {
     return ""
   }
 
   for (let i = 0; i < passwordLength; i++) {
-    generatedPassword += getRandom(finalString)
+    generatedPassword += getRandom(finalPassword)
   }
   return generatedPassword
 
 }
 
 // Get references to the #generate element
-var generateBtn = document.querySelector('#generate');
+const generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector('#password');
+  let password = generatePassword();
+  let passwordText = document.querySelector('#password');
 
   passwordText.value = password;
 }
@@ -97,23 +97,8 @@ function writePassword() {
 generateBtn.addEventListener('click', writePassword);
 
 // Copy to clipboard function
-// function copyToClipboard(containerid) {
-//   if (document.selection) {
-//     var range = document.body.createTextRange();
-//     range.moveToElementText(document.getElementById(containerid));
-//     range.select().createTextRange();
-//     document.execCommand("copy");
-//   } else if (window.getSelection) {
-//     var range = document.createRange();
-//     range.selectNode(document.getElementById(containerid));
-//     window.getSelection().addRange(range);
-//     document.execCommand("copy");
-//     alert("The password has been copied!")
-//   }
-// }
-
 function copyToClipboard() {
-  var copiedPass  = document.getElementById("password");
+  let copiedPass  = document.getElementById("password");
   let passwordCopied = copiedPass.value
   navigator.clipboard.writeText(passwordCopied).then(() => {
     alert("The password has been copied!");
