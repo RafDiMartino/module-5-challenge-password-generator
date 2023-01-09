@@ -18,7 +18,7 @@ let finalPassword = ""
 function getPasswordOptions() {
   do {
 
-    passwordLength = prompt("Choose a number between 10 and 64")
+    passwordLength = prompt("Choose you password length by choosing a number between 10 and 64")
 
     if (passwordLength === null) {
       return
@@ -34,10 +34,10 @@ function getPasswordOptions() {
 
   do {
 
-    const lowercase = confirm("Would you like to use Lowercase Characters?")
-    const uppercase = confirm("Would you like to use Uppercase Characters?")
-    const numeric = confirm("Would you like to use Numeric Characters?")
-    const specialChar = confirm("Would you like to use Special Characters? ($@%&*, etc)")
+    const lowercase = confirm("Would you like to include Lowercase Characters in you password?")
+    const uppercase = confirm("Would you like to include Uppercase Characters in you password?")
+    const numeric = confirm("Would you like to include Numeric Characters in you password?")
+    const specialChar = confirm("Would you like to include Special Characters in you password? ($@%&*, etc)")
 
     if (lowercase) {
       finalPassword += lowerCasedCharacters.join("")
@@ -101,7 +101,7 @@ function copyToClipboard() {
   let copiedPass  = document.getElementById("password");
   let passwordCopied = copiedPass.value
   navigator.clipboard.writeText(passwordCopied).then(() => {
-    alert("The password has been copied!");
+    alert("The password has been copied to clipboard!");
   }, () => {
     alert("The password has not been copied, try again");
   });
